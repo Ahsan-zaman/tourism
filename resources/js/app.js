@@ -1,4 +1,10 @@
-require("./bootstrap");
+require('./bootstrap');
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
 
 //Show and hide hamburguer menu in small screens
 const menu = document.getElementById("menu");

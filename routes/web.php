@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::delete('/users/{user}', [DashboardController::class, 'block'])->name('users.block');
+    Route::post('/users/{user}', [DashboardController::class, 'unblock'])->name('users.unblock')->withTrashed();
+
 });
-Route::get('show', function () {
-    return view('show');
-});
+
+require __DIR__.'/auth.php';
