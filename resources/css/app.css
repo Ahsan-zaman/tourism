@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    max-width: 1200px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+.filter-options li a {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 7px 0.75rem;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    --tw-text-opacity: 1;
+    color: rgb(55 65 81/var(--tw-text-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .3s;
+}
+section{
+    position: relative;
+}
+
+.navbar-show {
+    height: 15.75rem!important;
+    opacity: 1!important;
+}
