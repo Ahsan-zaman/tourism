@@ -40,10 +40,9 @@
                     <div class="flex justify-center mb-5">
                         <ul class="filter-options flex flex-wrap gap-4 justify-center">
                             <li data-group="all"><a class="inline-block cursor-pointer rounded-md py-3 px-5 focus:bg-blue-200 focus:text-blue-700" href="javascript:void(0)">All</a></li>
-                            <li data-group="android"><a class="inline-block cursor-pointer rounded-md py-3 px-5 focus:bg-blue-200 focus:text-blue-700" href="javascript:void(0)">Riyadh</a></li>
-                            <li data-group="mockup"><a class="inline-block cursor-pointer rounded-md py-3 px-5 focus:bg-blue-200 focus:text-blue-700" href="javascript:void(0)">Jedddah</a></li>
-                            <li data-group="personal"><a class="inline-block cursor-pointer rounded-md py-3 px-5 focus:bg-blue-200 focus:text-blue-700" href="javascript:void(0)">Dammam</a></li>
-                            <li data-group="design"><a class="inline-block cursor-pointer rounded-md py-3 px-5 focus:bg-blue-200 focus:text-blue-700" href="javascript:void(0)">Madinah</a></li>
+                            @foreach($categories as $category)
+                            <li data-group="{{ $category->title }}"><a class="inline-block cursor-pointer rounded-md py-3 px-5 focus:bg-blue-200 focus:text-blue-700" href="javascript:void(0)">{{ $category->title }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -52,167 +51,21 @@
             <!--end /div-->
 
             <div id="grid" class="md:flex justify-center shuffle" style="position: relative; overflow: hidden; height: 1689.66px; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;">
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;mockup&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
+                @foreach($categories as $category)
+                @foreach($category->packages as $package)
+                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;{{$category->title}}&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
                     <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
+                        <img src="{{ $package->thumb_url }}" class="rounded max-h-60 object-cover w-full transition-all duration-500 group-hover:scale-105" alt="work-image">
+                        <a href="{{ route('packages.show',$package) }}" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
                             <div>
-                                <p class="text-sm text-gray-400">Media, Icons</p>
-                                <h6 class="text-base text-black font-medium">Open Imagination</h6>
+                                <p class="text-sm text-gray-400">{{ $category->title }}</p>
+                                <h6 class="text-base text-black font-medium">{{ $package->title }}</h6>
                             </div>
                         </a>
                     </div>
                 </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;android&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(379px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Illustrations</p>
-                                <h6 class="text-base text-black font-medium">Locked Steel Gate</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;mockup&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(757px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Graphics, UI Elements</p>
-                                <h6 class="text-base text-black font-medium">Mac Sunglasses</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;android&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(0px, 142px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Icons, Illustrations</p>
-                                <h6 class="text-base text-black font-medium">Morning Dew</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;android&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(0px, 396px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://scth.scene7.com/is/image/scth/1920x1080-56:crop-375x280?defaultImage=1920x1080-56&wid=375&hei=280" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">UI Elements, Media</p>
-                                <h6 class="text-base text-black font-medium">Console Activity</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;personal&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(757px, 479px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Graphics</p>
-                                <h6 class="text-base text-black font-medium">Sunset Bulb Glow</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;design&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(379px, 497px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">UI Elements, Media</p>
-                                <h6 class="text-base text-black font-medium">Console Activity</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;mockup&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(0px, 956px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Illustrations, Graphics</p>
-                                <h6 class="text-base text-black font-medium">Shake It!</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;personal&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(757px, 976px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Graphics</p>
-                                <h6 class="text-base text-black font-medium">Sunset Bulb Glow</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;personal&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(379px, 994px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Graphics</p>
-                                <h6 class="text-base text-black font-medium">Sunset Bulb Glow</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;android&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(0px, 1246px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">UI Elements, Media</p>
-                                <h6 class="text-base text-black font-medium">Console Activity</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;mockup&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(379px, 1384px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Illustrations, Graphics</p>
-                                <h6 class="text-base text-black font-medium">Shake It!</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 p-3 picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;design&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(757px, 1444px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                    <div class="relative block overflow-hidden rounded group transition-all duration-500">
-                        <img src="https://assets.airtrfx.com/cdn-cgi/image/height=1080,format=auto/https://static.flynas.com/images/em/RIYADH.png" class="rounded transition-all duration-500 group-hover:scale-105" alt="work-image">
-                        <a href="javascript:void(0)" class="absolute inset-3 flex items-end cursor-pointer rounded bg-white p-3 opacity-0 transition-all duration-500 group-hover:opacity-80">
-                            <div>
-                                <p class="text-sm text-gray-400">Illustrations, Graphics</p>
-                                <h6 class="text-base text-black font-medium">Shake It!</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--end /div-->
-            <div class="flex justify-center mt-8">
-                <a href="work.html" class="py-4 px-7 rounded text-sm font-medium bg-blue-500 text-white">More Works <i class="mdi mdi-arrow-right ms-1"></i></a>
-            </div>
+                @endforeach
+                @endforeach
         </div>
     </section>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -30,5 +31,18 @@ class DashboardController extends Controller
         $user->restore();
 
         return back()->with('message', "{$user->name} active now!");
+    }
+
+    public function home()
+    {
+        $categories = Category::withCount('packages')
+        ->with(['packages'])
+        ->orderByDesc('packages_count')
+        ->limit(5)
+        ->get();
+        // dd($categories[0]->packages[0]->thumb_url);
+        return view('welcome')->with([
+            'categories' => $categories
+        ]);
     }
 }

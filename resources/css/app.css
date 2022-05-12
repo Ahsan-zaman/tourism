@@ -30,3 +30,25 @@ section{
     height: 15.75rem!important;
     opacity: 1!important;
 }
+article h3, strong{
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+article p{
+    margin: 20px 0;
+    padding: 0;
+    font-size: large;
+    color: #333;
+    line-height: 1.3rem;
+}
+article img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 600px;
+    margin: 20px 0px;
+    display: block;
+    border-radius: .35rem;
+}

@@ -40,7 +40,7 @@
                         <!-- Post-->
                         <article>
                             <div>
-                                <a href="#"><img src="https://myrathemes.com/buckzo/layouts/assets/images/blog/blog-1.jpg" alt="" class="rounded"></a>
+                                <a href="#"><img src="https://scth.scene7.com/is/image/scth/00hero_Jeddah_Museum-of-Abdul-Raoof-Hasan-Khalil-2:crop-660x337?defaultImage=00hero_Jeddah_Museum-of-Abdul-Raoof-Hasan-Khalil-2&wid=1560&hei=796" alt="" class="rounded"></a>
                             </div>
 
                             <div>
@@ -74,7 +74,7 @@
                         <article>
 
                             <div>
-                                <a href="#"><img src="https://myrathemes.com/buckzo/layouts/assets/images/blog/blog-3.jpg" alt="" class="rounded"></a>
+                                <a href="#"><img src="https://scth.scene7.com/is/image/scth/A233%20King%20Fahd_s%20Fountain_1-5:crop-660x337?defaultImage=A233%20King%20Fahd_s%20Fountain_1-5&wid=2000&hei=1021" alt="" class="rounded"></a>
                             </div>
 
                             <div>
@@ -178,14 +178,11 @@
 
                         </article>
                         <!-- Post end-->
-
-
-
                         <!-- Post-->
                         <article>
 
                             <div>
-                                <a href="#"><img src="https://myrathemes.com/buckzo/layouts/assets/images/blog/blog-5.jpg" alt="" class="rounded"></a>
+                                <a href="#"><img src="https://www.visitsaudi.com/content/dam/saudi-tourism/media/articles/a175-tayebat-museum/image-1/Tayebat-Museum-jeddah.jpg" alt="" class="rounded"></a>
                             </div>
 
                             <div>
